@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("PG_HOST") { "localhost" } %>
+  username: <%= ENV.fetch("PG_USER") { "kest" } %>
+  password: <%= ENV.fetch("PG_PASSWORD") { "" } %>
+  database: <%= ENV.fetch("PG_DBNAME") { "groc_del_api_development" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: groc_del_api_test
+
+production:
+  <<: *default
+  database: groc_del_api_production
+  username: groc_del_api
+  password: <%= ENV['GROC_DEL_API_DATABASE_PASSWORD'] %>
