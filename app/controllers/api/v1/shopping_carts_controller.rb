@@ -1,7 +1,7 @@
 class Api::V1::ShoppingCartsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  def show
     render_shopping_cart
   end
 
@@ -24,7 +24,7 @@ class Api::V1::ShoppingCartsController < ApplicationController
   end
 
   def shopping_cart
-    @shopping_cart ||= current_user.shopping_cart
+    @shopping_cart ||= (current_user.shopping_cart || ShoppingCart.create(user: current_user))
   end
 
   def add_to_cart_params

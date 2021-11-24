@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :products, only: %i[index]
 
-      resources :shopping_carts, only: %i[index]
-
-      post "shopping_carts/add", to: "shopping_carts#add"
-      post "shopping_carts/remove", to: "shopping_carts#remove"
-      delete "shopping_carts/clear", to: "shopping_carts#remove"
+      resource :shopping_cart, only: [:show] do
+        post :add
+        post :remove
+        delete :clear
+      end
     end
   end
 end

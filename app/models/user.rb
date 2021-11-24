@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 
   has_one :shopping_cart
   has_many :products, through: :shopping_cart
+
+  validates :name, presence: true, length: { minimum: 1 }
+  validates :uid, presence: true, length: { minimum: 1 }
 end

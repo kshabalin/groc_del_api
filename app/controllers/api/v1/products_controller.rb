@@ -11,6 +11,6 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def filter_params
-    @filter_params ||= params.permit(:search_value, category_ids: [], supplier_ids: [])
+    @filter_params ||= params.permit(:search_value, category_ids: [])
   end
 end

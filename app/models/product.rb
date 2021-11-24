@@ -12,14 +12,18 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :supplier
 
-  has_many :products
-  has_and_belongs_to_many :users
-
   validates :name, presence: true, length: { minimum: 1 }
   validates :price, presence: true, numericality: { greater_than: 0 }
 
   validates :category, presence: true
   validates :supplier, presence: true
+  validate :supplier_category
 
   scope :search_by_name, ->(name) { where("products.name ILIKE ?", "%#{name}%") }
+
+  private
+
+  def supplier_category
+    errors.add(:category, "Invalid supplier category") if category != supplier&.category
+  end
 end

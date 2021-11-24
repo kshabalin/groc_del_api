@@ -11,5 +11,11 @@
 require 'rails_helper'
 
 RSpec.describe Supplier, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:instance) { build(:supplier) }
+
+  it { is_expected.to have_many(:products) }
+  it { is_expected.to belong_to(:category) }
+
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_length_of(:name).is_at_least(1) }
 end
