@@ -1,7 +1,7 @@
 # README
 
 There have been developed:
-* Models User, Category, Product, Supplier, ShoppingCart, ShoppingCartItems;
+* User, Category, Product, Supplier, ShoppingCart and ShoppingCartItem models;
 
 * Product and Shopping Cart controllers;
 
