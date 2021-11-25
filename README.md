@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+There have been developed:
+* Models User, Category, Product, Supplier, ShoppingCart, ShoppingCartItems;
 
-Things you may want to cover:
+* Product and Shopping Cart controllers;
 
-* Ruby version
+* Auth;
 
-* System dependencies
+* All models are covered with tests;
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Product and Shopping Cart controllers are covered with tests.
